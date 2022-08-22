@@ -5,7 +5,6 @@ const User = require('./User');
 const Category = require('./category');
 const Collection = require('./collection');
 //dropping db leaving comment to commit TEST"
-// TO DO change associations for plants belong to Users
 Post.belongsTo(User, {
   foreignKey: 'userId',
   onDelete: 'CASCADE'
