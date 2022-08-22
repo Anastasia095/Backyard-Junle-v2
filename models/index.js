@@ -4,37 +4,27 @@ const Comment = require('./comment');
 const User = require('./User');
 const Category = require('./category');
 const Collection = require('./collection');
-
-//TO DO change associations for plants belong to Users through collection
+//dropping db leaving comment to commit TEST"
+// TO DO change associations for plants belong to Users
 Post.belongsTo(User, {
   foreignKey: 'userId',
   onDelete: 'CASCADE'
 })
-
-Post.hasMany(Comment, {
-  foreignKey: 'postId',
+Post.belongsTo(Category, {
+  foreignKey: 'type',
   onDelete: 'CASCADE'
 })
 
-Comment.belongsTo(Post, {
-  foreignKey: 'postId',
+Category.hasMany(Post, {
+  foreignKey: 'type',
   onDelete: 'CASCADE'
 })
 
-Comment.belongsTo(User, {
-  foreignKey: 'userId',
+Plants.hasMany(Collection, {
+  foreignKey: 'plant_id',
   onDelete: 'CASCADE'
 })
-
-Collection.belongsTo(User, {
-  foreignKey: 'id',
-  onDelete: 'CASCADE'
-})
-
-Collection.hasMany(Plants, {
-  foreignKey: 'collection_id',
-  onDelete: 'CASCADE'
-})
+Collection.belongsTo(Plants)
 
 module.exports = {
   Plants,

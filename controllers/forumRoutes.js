@@ -2,46 +2,46 @@ const router = require('express').Router();
 const { Post, User, Category } = require('../models');
 const withAuth = require('../utils/auth');
 
-// router.get('/forum', async (req, res) => {
-//     res.render('specific-forum', {layout: 'main'});
-// });
 
-router.get('/:id', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
+  try {
+    const newPost = await Post.create({
+      title: req.body.title,
+      body: req.body.body,
+      type: req.body.type,
+      user_id: req.session.user_id
+    });
 
-    try {
-      const postData = await Post.findAll({
-        include: [
-          {
-            model: User,
-            attributes: ['user_name']
-          }
-        ]
-      })
-      const categoryData = await Category.findAll()
-      const categories = categoryData.map((post) => post.get({ plain: true }))
-      const post = postData.map((post) => post.get({ plain: true }))
-      res.render('specific-forum', { layout: 'main' , post, categories })
-    } catch (err) {
-      res.status(500).json(err)
-    }
-  });
+    res.status(200).json(newPost);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json(err);
+  }
+});
 
-//  //or like this?
-  router.post('/', async (req, res) => {
-    console.log("FORUM POST ROUTES TEST!")
-    console.log (req.body)
+router.get('/title', async (req, res) => {
+  console.log(req.query.title)
+  try{ 
+    const categoryData = await Category.findAll(
+      {where: {title: req.query.title},
+      include: [{model:Post}]
+     },
+      )
+    const categories = categoryData.map((category) => category.get({ plain: true }))
+    let cposts = categories[0].posts;
+  // for (var i = 0; i < categories.length; i++) {
+  //     cposts[i] = categories[i].posts;
+  // } 
+    // console.log(categories[0].posts)
+    console.log(cposts)
+    // console.log(categories)
+    res.render('specific-forum', { layout: 'main', categories, cposts })
+    res.status(200)
+  } catch (err) {
+    res.status(500).json(err)
+  }
 
-    try {
-      const newPost = await Post.create({
-        title: req.body.title,
-        body: req.body.body,
-        type: req.body.type
-      });
-  
-      res.status(200).json(newPost);
-    } catch (err) {
-      res.status(400).json(err);
-    }
-  });
+});
 
-  module.exports = router;
+
+module.exports = router;

@@ -1,4 +1,3 @@
-console.log("HEY IM TEST!")
 async function signupFormHandler(event) {
     event.preventDefault();
     console.log("login JS file")
@@ -51,4 +50,3 @@ async function loginFormHandler(event) {
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
 
 document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
-

@@ -6,14 +6,9 @@ class Category extends Model {}
 Category.init(
   //body, type string, allow null false
   {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
-    },
     title: {
       type: DataTypes.STRING,
+      primaryKey: true,
       allowNull: false
     },
     filename: {
@@ -25,7 +20,7 @@ Category.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Category',
+    modelName: 'category',
     timestamps: false
   }
 )

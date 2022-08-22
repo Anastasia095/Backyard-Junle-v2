@@ -22,13 +22,6 @@ Plants.init(
     img_url: {
       type: DataTypes.TEXT,
     },
-    collection_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'collection',
-        key: 'id'
-      }
-    }
   },
   {
     sequelize,

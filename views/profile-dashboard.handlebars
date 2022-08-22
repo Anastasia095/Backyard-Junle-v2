@@ -37,19 +37,11 @@
 
     <section class="profile-details">
         <div>
-            <h3>My Garden</h3>
             <div class="wraper">
                 {{#each plants as |plant|}}
                 {{> profile-garden-tiles}}
                 {{/each}}
             </div>
-            <div class="wraper">
-                {{#each cplants as |cplant|}}
-                {{> collection}}
-                {{/each}}
-            </div>
-
-
             <div class="input-group searchf">
                 <form id="plantSearch">
                     <input type="text" id="pSearch" class="form-control psearchb" placeholder="Looking for something?"
@@ -63,10 +55,17 @@
             {{#each post as |post|}}
             {{> post-box}}
             {{/each}}
-
-
+         <h3>My Garden</h3>
+            <div class="wraper">
+                 
+                {{#each cplants as |cplant|}}
+                {{> collection}}
+                {{/each}}
+            </div>
         </div>
 
     </section>
 
 </div>
+<script src="/js/tips.js"></script>
+<script src="/js/plantSearch.js"></script>

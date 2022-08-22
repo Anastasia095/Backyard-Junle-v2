@@ -15,5 +15,4 @@ var items = [
   'Be sure to dust your plants.',
   'Egg shells are a great source of nutrients.'
 ]
-console.log(random_tips(items))
 tips.innerText = random_tips(items)
