@@ -176,7 +176,7 @@ img {
 .content {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    min-height: 79vh;
 }
 
 footer {
@@ -186,6 +186,7 @@ footer {
     padding: 10px 0;
     background-color: var(--middle);
     text-align: center;
+    bottom: 0;
 }
 
 footer ul {
@@ -537,7 +538,7 @@ footer ul li {
 /*  FORUM  */
 .specific-forum-content { 
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .specific-category-list {
@@ -572,7 +573,8 @@ footer ul li {
 .specific-forum-post { 
     display: flex;
     flex-direction: column;
-    padding: 0 30px;
+    /* padding: 0 30px; */
+    min-width: 50%;
 }
 
 .specific-forum-post h3 { 
@@ -602,7 +604,6 @@ footer ul li {
     border: solid;
     border-color: darkgreen;
     border-radius: 10px;
-
 }
 
 
