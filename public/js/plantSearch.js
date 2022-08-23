@@ -1,4 +1,3 @@
-
 const searchFormHandler = async (event) => {
     event.preventDefault();
     const plant = document.getElementById('pSearch').value.trim();
@@ -31,12 +30,17 @@ var weather = {
     APIKey: "d23ee897efa94295b3514040220808",
     myURL: 'https://api.weatherapi.com/v1/current.json?key=',
     fetchWeather: function () {
-
         fetch(this.myURL + this.APIKey + '&q=auto:ip')
             .then((response) => {
-                return response.json();
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('We are out of API calls :(');
             })
-            .then((data) => this.displayWeather(data));
+            .then((data) => this.displayWeather(data))
+            .catch((error) => {
+                console.log(error)
+            });;
     },
     displayWeather: function (data) {
         document.getElementById("icon").src = data.current.condition.icon;
