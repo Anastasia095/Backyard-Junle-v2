@@ -21,7 +21,7 @@ async function signupFormHandler(event) {
     }
 };
 
-async function loginFormHandler(event) {
+ async function loginFormHandler(event) {
     event.preventDefault();
 
     const email = document.querySelector('#email-login').value.trim();
@@ -36,12 +36,15 @@ async function loginFormHandler(event) {
             }),
             headers: { 'Content-Type': 'application/json' }
         });
+        //had to delay execution of the code below, because session obg was being accessed too soon, therefore api/route couldn't get passed withAuth
+        setTimeout(() => {
+            if (response.ok) {
+                document.location.replace('/api/profile');
+            } else {
+                alert(response.statusText);
+            }
+          }, "400")
 
-        if (response.ok) {
-            document.location.replace('/api/profile');
-        } else {
-            alert(response.statusText);
-        }
     }
 };
 

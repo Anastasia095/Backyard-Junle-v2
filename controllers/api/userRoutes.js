@@ -9,7 +9,6 @@ router.post('/', async (req, res) => {
       password: req.body.password,
     });
     req.session.save(() => {
-      console.log("userData")
       console.log(userData);
       //added this to get user ID saved to session///ANA
       req.session.user_id = userData.id;
@@ -40,11 +39,11 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      console.log(
-        '~ file: userRoutes.js ~ line 40 ~ req.session.save ~ req.session.cookie',
-        req.session.cookie
-      );
-
+      // console.log(
+      //   '~ file: userRoutes.js ~ line 40 ~ req.session.save ~ req.session.cookie',
+      //   req.session.cookie
+      // );
+      console.log(req.session);
       res
         .status(200)
         .json({ user: userData, message: 'You are now logged in!' });
