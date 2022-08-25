@@ -1,0 +1,14 @@
+<div class="polaroid">
+    <div class="container">
+      <p class="random-p"> Plant of the day!🪴</p>
+    </div>
+  {{#if img_url}}
+  <img src="{{img_url}}" class="card-img-top">
+  {{else}}
+  <img src="https://www.wasaweb.net/images/thumbnails/512x512-flowers-488.jpg" class="card-img-top">
+  {{/if}}
+  <div class="container">
+    <h4 class="card-title">{{Scientific_Name}}</h4>
+    <h4 class="card-title">{{Common_Name}}</h4>
+  </div>
+</div>

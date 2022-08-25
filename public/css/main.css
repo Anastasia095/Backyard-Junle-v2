@@ -16,7 +16,7 @@ body {
     height: 100vh;
     background-color: var(--light);
     font-size: 16px;
-    font-family: 'Public Sans', sans-serif;    
+    font-family: 'Public Sans', sans-serif;
 
 }
 
@@ -30,7 +30,7 @@ h2 {
     font-weight: 700;
 }
 
-h3 { 
+h3 {
     font-size: 1.1rem;
 }
 
@@ -76,20 +76,27 @@ img {
     padding: 0;
 
 }
-
+.modal-wrap {
+    width:30%;
+    margin: 0 auto;
+    min-width: min-content;
+}
 .modal {
-    width: 30%;
-    position: fixed;
-    left: 500px;
+    margin-top: 10%;
+    width:100%; 
 }
 
 .modal-header {
     background-color: var(--standout);
+    border-bottom-width: 0px;
 }
 
 .mcustom {
+    /* display:flex; */
     padding: 10%;
     background-color: var(--light);
+    background-image: url("../img/bckgrnd2.jpg");
+    background-size: 100% 100%;
 }
 
 
@@ -100,7 +107,9 @@ img {
 }
 
 .gcard-body {
-    background-color: #647646;
+    /* background-color: #647646; */
+    background: rgb(1, 68, 33, .6);
+    /* color: white; */
     padding: 0.5%;
     margin: 0.5%;
     text-align: center;
@@ -120,13 +129,13 @@ img {
 }
 
 .ifInfo {
-    display:none;
+    display: none;
     margin: 0;
     padding: 0;
 }
 
 /*  EVERYPAGE  */
-.main-header { 
+.main-header {
     margin-bottom: 30px;
     margin-bottom: 30px;
     padding: 0 10px;
@@ -146,7 +155,7 @@ img {
 }
 
 
-.nav-item { 
+.nav-item {
     margin: 0 5px;
     text-align: center;
     border-top-left-radius: 5px;
@@ -158,11 +167,13 @@ img {
     background-color: var(--light);
     cursor: pointer;
 }
+
 /*===================*/
-.contacts-wrapper{
+.contacts-wrapper {
     text-align: center
 }
-.logo { 
+
+.logo {
     width: 250px;
     margin-left: 30px;
     padding-bottom: 10px;
@@ -261,7 +272,7 @@ footer ul li {
     font-size: 1.3rem;
 }
 
-.welcome-hero .custom-btn { 
+.welcome-hero .custom-btn {
     margin-right: 20px;
 }
 
@@ -324,6 +335,22 @@ footer ul li {
 .login-forms {
     display: flex;
     justify-content: center;
+}
+
+.form-wrapper {
+    background: rgba(224, 233, 224, 0.5);
+    /* Green background with 30% opacity */
+    font-weight: bolder;
+    padding: 3%;
+    text-shadow: 0px 0px 6px rgb(255, 255, 255);
+}
+
+.loginBtn {
+    margin-top: 2%;
+}
+
+.logoutbtn {
+    margin-top: 2%;
 }
 
 /* div around the two forms */
@@ -427,6 +454,7 @@ footer ul li {
 .profile-info {
     width: 30%;
     padding: 30px;
+    text-align: center;
 }
 
 .profile-info figure {
@@ -437,9 +465,13 @@ footer ul li {
 }
 
 .profile-info-img {
-    width: 100%;
+    background-image: url('../img/profimg.jpg');
+    background-size: 100% 100%;
+    height: 200px;
+    width: 200px;
     border-radius: 50%;
     border: 5px solid var(--dark-middle);
+    border-width: thin;
 }
 
 .profile-info>h3 {
@@ -457,7 +489,7 @@ footer ul li {
 }
 
 
-.widget-top { 
+.widget-top {
     padding: 10px;
     background-color: var(--standout);
     color: var(--offWhite);
@@ -479,19 +511,19 @@ footer ul li {
     padding-bottom: 60px;
 }
 
-.profile-details .input-group { 
+.profile-details .input-group {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.input-group .form-control { 
+.input-group .form-control {
     width: 100%;
     text-align: center;
 }
 
-.input-group .form-inline, 
-.profile-details .input-group button { 
+.input-group .form-inline,
+.profile-details .input-group button {
     width: 30%;
 }
 
@@ -516,12 +548,12 @@ footer ul li {
     border-top-right-radius: 10px;
 }
 
-.post-card .post-top, 
-.post-card p { 
+.post-card .post-top,
+.post-card p {
     padding: 10px;
 }
 
-.post-top { 
+.post-top {
     background-color: var(--dark-middle);
     color: var(--offWhite);
     border-top-left-radius: 10px;
@@ -531,19 +563,21 @@ footer ul li {
 
 
 /*  FORUM  */
-.specific-forum-content { 
+.specific-forum-content {
     display: flex;
     justify-content: space-between;
 }
 
 .specific-category-list {
     width: 20%;
+    min-width: min-content;
     text-align: center;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.specific-category-list h3 { 
+.specific-category-list h3 {
     padding: 10px;
     margin: 0;
     font-weight: 600;
@@ -551,7 +585,7 @@ footer ul li {
     border-top-right-radius: 10px;
 }
 
-.list-group-item { 
+.list-group-item {
     width: 100%;
     height: 70px;
     color: var(--dark);
@@ -565,18 +599,18 @@ footer ul li {
     color: var(--dark);
 }
 
-.specific-forum-post { 
+.specific-forum-post {
     display: flex;
     flex-direction: column;
     /* padding: 0 30px; */
     min-width: 50%;
 }
 
-.specific-forum-post h3 { 
+.specific-forum-post h3 {
     margin: 10px 0;
 }
 
-.add-post button { 
+.add-post button {
     width: 4rem;
     height: 4rem;
     margin-right: 30px;
@@ -588,7 +622,7 @@ footer ul li {
     border: .5px solid var(--light);
 }
 
-.add-post button:hover { 
+.add-post button:hover {
     background-color: var(--dark-middle);
     color: var(--offWhite);
 }
@@ -604,71 +638,39 @@ footer ul li {
 
 
 /* ABOUT */
-.about-text { 
-    width: 50%;
-    margin: 30px 0;
-    padding: 10px 20px;
-    border: 1px solid var(--standout);
-    border-radius: 5px;
+.about-wrapper {
+    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.about-text p { 
+.about-text {
+    width: 50%;
+    margin: 30px 0;
+    padding: 10px 20px;
+    border: 1px solid var(--standout);
+    border-radius: 5px;
+}
+
+.about-text p {
     margin-bottom: 30px;
 }
 
+div.polaroid {
+    width: 100%;
+}
 
-/* Randon Plant Card */
+img {
+    width: 100%
+}
 
-  
-  .a-box {
-    display: inline-block;
-    width: 240px;
+div.container {
     text-align: center;
-  }
-  
-  .img-container {
-      height: 230px;
-      width: 200px;
-      overflow: hidden;
-      border-radius: 0px 0px 20px 20px;
-      display: inline-block;
-  }
-  
-  .img-container img {
-      transform: skew(0deg, -13deg);
-      height: 250px;
-      margin: -35px 0px 0px -70px;
-  }
-  
-  .inner-skew {
-      display: inline-block;
-      border-radius: 20px;
-      overflow: hidden;
-      padding: 0px;
-      transform: skew(0deg, 13deg);
-      font-size: 0px;
-      margin: 30px 0px 0px 0px;
-      background: #c8c2c2;
-      height: 250px;
-      width: 200px;
-  }
-  
-  .text-container {
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
-    padding: 120px 20px 20px 20px;
-    border-radius: 20px;
-    background: #fff;
-    margin: -120px 0px 0px 0px;
-    line-height: 19px;
-    font-size: 14px;
-  }
-  
-  .text-container h3 {
-    margin: 20px 0px 10px 0px;
-    /* color: #04bcff; */
-    font-size: 18px;
-  }
+    padding: 10px 20px;
+}
+
+.random-p {
+    margin: 0;
+}

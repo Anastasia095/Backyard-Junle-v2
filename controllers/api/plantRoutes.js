@@ -36,33 +36,33 @@ router.get('/', withAuth, async (req, res) => {
     const plants = plantData.map((plant) => plant.get({ plain: true }));
     if (plants.length == 0) {
       res.status(400).json(err);
-    } 
-    else if (plants[0].img_url == "") {
-        const params = {
-          engine: "yandex_images",
-          text: plants[0].Common_Name,
-          yandex_domain: "yandex.ru"
-        };
-
-        const callback = function (data) {
-          plants[0]['img_url'] = data["images_results"][0].thumbnail;
-          Plants.update(
-            { img_url: data["images_results"][0].thumbnail },
-            { where: { id: plants[0].id } }
-          )
-          res.render('profile-dashboard', { layout: 'main', plants });
-        };
-
-        // Show result as JSON
-        search.json(params, callback);
-      }
-      else {
-        res.render('profile-dashboard', { layout: 'main', plants });
-      }
-    } catch (err) {
-      res.status(400).json(err);
     }
-  });
+    else if (plants[0].img_url == "") {
+      const params = {
+        engine: "yandex_images",
+        text: plants[0].Common_Name,
+        yandex_domain: "yandex.ru"
+      };
+
+      const callback = function (data) {
+        plants[0]['img_url'] = data["images_results"][0].thumbnail;
+        Plants.update(
+          { img_url: data["images_results"][0].thumbnail },
+          { where: { id: plants[0].id } }
+        )
+        res.render('profile-dashboard', { layout: 'main', plants, logged_in: req.session.logged_in });
+      };
+
+      // Show result as JSON
+      search.json(params, callback);
+    }
+    else {
+      res.render('profile-dashboard', { layout: 'main', plants, logged_in: req.session.logged_in });
+    }
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
 router.post('/add', withAuth, async (req, res) => {
   try {
