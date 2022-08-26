@@ -14,7 +14,7 @@
                     <h3>Local Weather</h3>
                 </div>
                 <img class="icon" src="" id="icon">
-                <h2 id="city">Weather in</h2>
+                <h2 id="city"></h2>
                 <p id="weather"></p>
                 <p class="temp"></p>
                 <p class="wind"></p>
@@ -32,7 +32,13 @@
             </div>
         </section>
 
-
+        <div class="input-group searchf">
+            <form id="plantSearch" class="psearchForm">
+                <input type="text" id="pSearch" class="form-control psearchb" placeholder="Looking for something?"
+                    aria-label="Looking for something?" name="plant" aria-describedby="basic-addon2">
+                <input class="pbtn primary-btn psearchb" type="submit" value="Search">
+            </form>
+        </div>
 
     </aside>
 
@@ -43,22 +49,15 @@
                 {{> profile-garden-tiles}}
                 {{/each}}
             </div>
-            <div class="input-group searchf">
-                <form id="plantSearch">
-                    <input type="text" id="pSearch" class="form-control psearchb" placeholder="Looking for something?"
-                        aria-label="Looking for something?" name="plant" aria-describedby="basic-addon2">
-                    <input class="btn primary-btn psearchb" type="submit" value="Search">
-                </form>
-            </div>
 
 
             <h3>My Posts</h3>
             {{#each post as |post|}}
             {{> post-box}}
             {{/each}}
-         <h3>My Garden</h3>
+            <h3>My Garden</h3>
             <div class="wraper">
-                 
+
                 {{#each cplants as |cplant|}}
                 {{> collection}}
                 {{/each}}
