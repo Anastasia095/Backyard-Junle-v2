@@ -15,6 +15,7 @@
         "google-search-results-nodejs": "^2.1.0",
         "handlebars": "^4.7.6",
         "images-scraper": "^6.4.1",
+        "multer": "^1.4.5-lts.1",
         "mysql2": "^2.2.5",
         "node-fetch": "^2.6.1",
         "node-localstorage": "^2.2.1",

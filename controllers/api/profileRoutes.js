@@ -1,7 +1,17 @@
-const router = require('express').Router()
-const { Comment, User, Post, Collection, Plants } = require('../../models')
-const withAuth = require('../../utils/auth')
+const router = require('express').Router();
+const { Comment, User, Post, Collection, Plants } = require('../../models');
+const withAuth = require('../../utils/auth');
+const multer = require('multer');
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'images')
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + '--' + file.originalname)
+  }
+});
 
+const upload = multer({ storage: storage }).single('image');
 ///THIS IS GETTING THE POSTS
 router.get('/', withAuth, async (req, res,) => {
   try {
@@ -63,7 +73,7 @@ router.get('/', withAuth, async (req, res,) => {
   } catch (err) {
     res.status(500).json(err)
   }
-})
+});
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
@@ -74,7 +84,7 @@ router.get('/login', (req, res) => {
   }
   res.status(200)
 
-})
+});
 
 router.get('/:id', async (req, res) => {
   try {
@@ -88,5 +98,16 @@ router.get('/:id', async (req, res) => {
   } catch (err) {
     res.status(500).json(err)
   }
-})
+});
+
+router.post('/upload', (req, res) => {
+  upload(req, res, (err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(req.file);
+      res.send("File uploaded successfully!");
+    }
+  })
+});
 module.exports = router

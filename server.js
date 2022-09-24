@@ -6,6 +6,18 @@ const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const helpers = require('./utils/helpers');
 var bodyParser = require('body-parser');
+// const multer = require('multer');
+
+// const fileStorageEngine = multer.disckStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, './images')
+//   },
+//   filename: (req, file,cb) => {
+//     cb(null, Date.now() + '--' + file.originalname)
+//   }
+// });
+
+// const upload = multer({ storage: fileStorageEngine});
 
 const sequelize = require('./config/connection');
 const app = express();
