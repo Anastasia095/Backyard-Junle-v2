@@ -14,7 +14,7 @@ const searchFormHandler = async (event) => {
         if (response.ok) {
             document.location.replace('/api/searchplant?plant=' + qJoined);
         } else {
-            alert("Sadly we don't have this plant in our database...")
+            alert("Unfortunately we don't have this plant in our database...")
         }
     }
 };
@@ -23,6 +23,34 @@ document
     .getElementById('plantSearch')
     .addEventListener('submit', searchFormHandler);
 
+//** Avatar upload*/
+
+const uploadhFormHandler = async (event) => {
+    event.preventDefault();
+    if (document.getElementById('selectedFile').files.length == 0) {
+        alert("You need to select at least 1 file");
+    } else {
+        const image = document.getElementById('uploadForm');
+        console.log(image);
+        var imageData = new FormData(image);
+        console.log(imageData);
+        const response = await fetch('/api/profile/upload', {
+            method: 'POST',
+            body: imageData
+        });
+        if (response.ok) {
+            console.log("RESPONSE OK!");
+            // document.location.replace('/api/profile');
+        } else {
+            console.log("Failed to add to collection...");
+        }
+    }
+
+};
+
+document
+    .getElementById('uploadSubmit')
+    .addEventListener('click', uploadhFormHandler);
 //******************************* */
 // WEATHER API BELOW
 

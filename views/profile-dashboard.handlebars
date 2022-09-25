@@ -3,10 +3,14 @@
         <figure class="container1">
             {{!-- <img class="profile-info-img" src="/img/chika.jpg" alt=""> --}}
             {{!-- <button class="avatar"> --}}
-                <div class="profile-info-img"></div>
+                <div class="profile-info-img"
+                style="background-image: url(/images/1664135483782--flower-meanings-hyacinth-1642620998.jpg);"></div>
                 <div class="middle">
-                    <form class="text1" action="/profile" method="post" enctype="multipart/form-data">
-                        <input type="file" name="avatar" />
+                    {{!-- <form class="text1" action="/api/profile/upload" method="post" enctype="multipart/form-data">
+                        --}}
+                        <form class="text1" id="uploadForm" enctype="multipart/form-data">
+                        <input id="selectedFile" type="file" name="image" />
+                        <input type="submit" id="uploadSubmit" value="Submit" class="pbtn">
                     </form>
                 </div>
                 {{!--

@@ -4,7 +4,7 @@ const withAuth = require('../../utils/auth');
 const multer = require('multer');
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'images')
+    cb(null, 'public/images')
   },
   filename: (req, file, cb) => {
     cb(null, Date.now() + '--' + file.originalname)
@@ -101,13 +101,23 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/upload', (req, res) => {
+  console.log("Image route test!")
   upload(req, res, (err) => {
     if (err) {
       console.log(err);
     } else {
       console.log(req.file);
-      res.send("File uploaded successfully!");
+      console.log(req.file.filename);
+      try {
+        const avatarAdd = User.update(
+          { avatar: req.file.filename },
+          { where: { id: req.session.user_id } }
+        );
+        res.status(200).json(avatarAdd);
+      } catch (err) {
+        res.status(400).json(err);
+      }
     }
-  })
+  });
 });
 module.exports = router
