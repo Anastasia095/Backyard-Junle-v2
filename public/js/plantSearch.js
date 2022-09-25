@@ -72,3 +72,22 @@ plantID.forEach(response => {
         }
     })
 })
+
+/***********Remove From Collection */
+const selectedPlant = document.querySelectorAll('.collection-remove');
+
+selectedPlant.forEach(response => {
+    response.addEventListener('click', async function myFunction(e) {
+        let selected_id = e.target.id;
+        const response = await fetch('/api/searchplant/remove', {
+            method: 'POST',
+            body: JSON.stringify({ selected_id }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+        if (response.ok) {
+            document.location.replace('/api/profile');
+        } else {
+            console.log("Failed to remove...")
+        }
+    })
+})
