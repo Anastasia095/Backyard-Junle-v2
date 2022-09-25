@@ -78,12 +78,10 @@ router.post('/add', withAuth, async (req, res) => {
 });
 
 router.post('/remove',  async (req, res) => {
-  console.log("receiveed");
-  console.log(req.body.plant_id);
   try {
     const collectionRemove = await Collection.destroy({
       where: {
-        plant_id: req.body.plant_id
+        plant_id: req.body.selected_id
       }
     });
 
