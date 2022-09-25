@@ -26,6 +26,8 @@ Welcome to the GitHub page for Backyard Jungle, the site for all plant lovers!
 
 -Axios
 
+-Multer
+
 -Connect-session-sequelize
 
 -Sequelize
