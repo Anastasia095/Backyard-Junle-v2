@@ -188,26 +188,34 @@ img {
 }
 
 footer {
-    height: 50px;
+    /* display: flex;
+    align-items: center; */
+    height: 150px;
     width: 100%;
     margin-top: 30px;
     padding: 10px 0;
-    background-color: var(--middle);
+    /* background-color: var(--middle); */
+    /* background-image: url("../img/pattern.jpg"); */
     text-align: center;
     bottom: 0;
+    color: black;
+}
+
+footer a {
+    color: black;
 }
 
 footer ul {
     margin: 0;
-    display: flex;
-    justify-content: center;
+    padding-bottom: 2%;
+    /* justify-content: center;  */
 }
 
 footer ul li {
     margin: 0 20px;
     font-size: .8rem;
-    display: flex;
-    align-items: center;
+    display:inline;
+    /* align-items: center; */
 }
 
 
@@ -744,4 +752,16 @@ div.container {
 
 .avatar:focus {
     outline: none;
+}
+
+.githubIcon {
+    width: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 0.5%;
+}
+
+ .copyright {
+    align-self: end;
 }
