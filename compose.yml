@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  # mysql:
+  #   image: mysql:8
+  #   restart: always
+  #   environment:
+  #     - MYSQL_PASSWORD=yfcnz1995
+  #     - MYSQL_DB=bj_db
+  #   ports:
+  #     - "6603:3306"
+  #   volumes:
+  #     - ./mysql-db:/var/lib/mysql/data
+
+  node:
+    container_name: node_server
+    image: node-server-prod
+    restart: unless.stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "30022:22"
+      - "3001:3001"
+    # depends_on:
+    #   - mysql
+

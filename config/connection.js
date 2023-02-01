@@ -10,16 +10,16 @@ if (process.env.JAWSDB_URL) {
     process.env.DB_NAME,
     process.env.DB_USER,
     process.env.DB_PASSWORD,
+    {
+      host: '135.148.46.157',
+      dialect: 'mysql',
+      port: 6603
+    }
     // {
-    //   host: 'localhost',
+    //   host: 'x71wqc4m22j8e3ql.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
     //   dialect: 'mysql',
     //   port: 3306
     // }
-    {
-      host: 'x71wqc4m22j8e3ql.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-      dialect: 'mysql',
-      port: 3306
-    }
   );
 }
 

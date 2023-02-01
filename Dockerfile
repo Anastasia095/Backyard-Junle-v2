@@ -1,14 +1,16 @@
-FROM node:18
+FROM  node:16-alpine
 
-WORKDIR /home/node/app
+ENV NODE_ENV=production
 
-COPY  package.json ./
+WORKDIR /usr/src/backyard-jungle
+
+
+COPY package.json .
+COPY package-lock.json .
 
 RUN npm install
 
 COPY . .
-RUN npm start
 
+CMD  node server.js
 EXPOSE 3001
-
-CMD ["node", "build/server.js"]
